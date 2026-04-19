@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { imgLogoWhite1 } from '../assets/figmaAssets'
 
 const NAV_LINKS = [
@@ -11,12 +11,28 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [active, setActive] = useState('Home')
   const [menuOpen, setMenuOpen] = useState(false)
+  const [btn, setBtn] = useState('default')
+
+  useEffect(() => {
+    const observers = []
+    NAV_LINKS.forEach(({ label, href }) => {
+      const el = document.querySelector(href)
+      if (!el) return
+      const observer = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActive(label) },
+        { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
+      )
+      observer.observe(el)
+      observers.push(observer)
+    })
+    return () => observers.forEach(o => o.disconnect())
+  }, [])
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100">
-      <div className="max-w-[1280px] mx-auto px-[50px] h-[74px] flex items-center justify-between">
+      <div className="h-[74px] flex items-stretch justify-between" style={{ paddingLeft: 'clamp(40px, 8vw, 160px)', paddingRight: 'clamp(20px, 3vw, 90px)' }}>
         {/* Logo */}
-        <a href="#home" className="flex items-center gap-3">
+        <a href="#home" className="flex items-center gap-3 self-center">
           <div className="relative w-[35px] h-[35px] bg-[#787cde] rounded-[10px] flex items-center justify-center flex-shrink-0">
             <img src={imgLogoWhite1} alt="Logo" className="w-[25px] h-[27px] object-contain" />
           </div>
@@ -24,23 +40,27 @@ export default function Navbar() {
         </a>
 
         {/* Desktop Nav */}
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden md:flex h-full gap-[52px]">
           {NAV_LINKS.map(({ label, href }) => (
-            <li key={label}>
+            <li key={label} className="h-full flex">
               <a
                 href={href}
                 onClick={() => setActive(label)}
-                className="flex flex-col gap-[3px] items-start group"
+                className="relative h-full flex items-center group"
               >
                 <span
-                  className="font-['Heebo',sans-serif] font-medium text-[17px] leading-none transition-colors"
-                  style={{ color: active === label ? '#787cde' : 'rgba(0,0,0,0.4)' }}
+                  className={`font-['Heebo',sans-serif] font-medium text-[17px] leading-none transition-colors duration-200 mb-[5px] mt-[10px] ${
+                    active === label
+                      ? 'text-[#787cde]'
+                      : 'text-black/40 group-hover:text-[#787cde]'
+                  }`}
                 >
                   {label}
                 </span>
                 <span
-                  className="h-[2px] rounded-full bg-[#787cde] transition-all duration-200"
-                  style={{ width: active === label ? '100%' : '0' }}
+                  className={`absolute bottom-0 left-0 h-[2px] rounded-full bg-[#787cde] transition-all duration-200 ${
+                    active === label ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`}
                 />
               </a>
             </li>
@@ -50,15 +70,29 @@ export default function Navbar() {
         {/* CTA Button */}
         <a
           href="mailto:kyralee0212@gmail.com"
-          className="hidden md:flex items-center justify-center h-[43px] px-[40px] rounded-[59px] text-white font-['Heebo',sans-serif] font-medium text-[18px] whitespace-nowrap"
-          style={{ background: 'linear-gradient(11deg, rgb(120,124,222) 20%, rgb(169,203,255) 80%)' }}
+          className="hidden md:flex self-center items-center justify-center rounded-[59px] font-['Heebo',sans-serif] font-medium whitespace-nowrap"
+          style={{
+            background: 'linear-gradient(11deg, rgb(120,124,222), rgb(169,203,255), rgb(120,124,222))',
+            backgroundSize: '200% 100%',
+            backgroundPosition: btn === 'hover' || btn === 'active' ? '100% 0%' : '0% 0%',
+            color: btn === 'active' ? '#3d4196' : 'white',
+            transition: 'background-position 0.5s ease, color 0.1s',
+            height: '30px',
+            padding: '0 28px',
+            fontSize: '13px',
+            marginRight: '8px',
+          }}
+          onMouseEnter={() => setBtn('hover')}
+          onMouseLeave={() => setBtn('default')}
+          onMouseDown={() => setBtn('active')}
+          onMouseUp={() => setBtn('hover')}
         >
           Work with me
         </a>
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden text-gray-700"
+          className="md:hidden text-gray-700 self-center"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

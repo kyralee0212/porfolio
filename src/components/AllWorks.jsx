@@ -90,7 +90,7 @@ function ProjectCard({ title, subtitle, images, href }) {
 export default function AllWorks() {
   return (
     <section className="bg-white" style={{ paddingTop: '60px', paddingBottom: '40px' }}>
-      <div className="max-w-[1280px] mx-auto px-[80px]">
+      <div className="section-container">
         {/* Heading */}
         <div className="mb-8">
           <h2 className="font-['Heebo',sans-serif] font-black text-[36px] leading-[40px]" style={{ color: '#0f172a' }}>

@@ -1,88 +1,101 @@
-import { imgVector1, imgVector2, imgAlien2 } from '../assets/figmaAssets'
+import { useState } from 'react'
+import { imgVector2, imgVector1, imgAlien2 } from '../assets/figmaAssets'
+import bgVideo from '../assets/bg_video.mp4'
 
 export default function Hero() {
+  const [state, setState] = useState('idle')
+  const [btn, setBtn] = useState('default')
+
   return (
-    <section id="home" className="relative overflow-hidden bg-white pt-[74px]" style={{ minHeight: '860px' }}>
-      {/* Purple background blob */}
+    <section
+      id="home"
+      className="relative overflow-hidden bg-white"
+      style={{ height: 'calc(100vh - 74px)', minHeight: '600px', marginTop: '74px' }}
+    >
+      {/* Video background right half */}
       <div
-        className="absolute"
+        className="absolute top-0 bottom-0 overflow-hidden"
+        style={{ left: '38%', right: 0, zIndex: 0, background: '#6468C8' }}
+        onMouseEnter={() => setState('in')}
+        onMouseLeave={() => setState('out')}
+      >
+        <video
+          src={bgVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </div>
+
+      {/* Vector2 下層 */}
+      <img src={imgVector2} alt="" className="absolute pointer-events-none"
+        style={{ left: 'calc(22% + 230px)', top: 'calc(-10% - 30px)', width: '50%', height: '120%', objectFit: 'fill', zIndex: 1 }}
+      />
+      {/* Vector1 上層 */}
+      <img src={imgVector1} alt="" className="absolute pointer-events-none"
+        style={{ left: '18%', top: '-10%', width: '50%', height: '120%', objectFit: 'fill', zIndex: 2 }}
+      />
+
+      {/* Alien */}
+      <img src={imgAlien2} alt="Alien"
+        className="absolute pointer-events-none"
+        onTransitionEnd={() => { if (state === 'out') setState('idle') }}
         style={{
-          left: '5%',
-          top: '51px',
-          width: '66%',
-          aspectRatio: '1208/832',
-          background: 'rgba(151,161,235,0.15)',
-          borderRadius: '40% 60% 60% 40% / 40% 40% 60% 60%',
+          width: '220px',
+          zIndex: state === 'in' ? 3 : 0,
+          top:  state === 'out' ? '-120px' : '70px',
+          left: state === 'idle' ? 'calc(100% + 20px)'
+              : state === 'in'   ? 'calc(60% + 360px)'
+              :                    '-280px',
+          transition: state === 'in'
+            ? 'left 2s cubic-bezier(0.22,1,0.36,1), top 2s cubic-bezier(0.22,1,0.36,1)'
+            : state === 'out'
+            ? 'left 0.4s cubic-bezier(0.55,0,1,0.45), top 0.4s cubic-bezier(0.55,0,1,0.45)'
+            : 'none',
         }}
       />
 
-      {/* Vector bg shape */}
-      <img
-        src={imgVector2}
-        alt=""
-        className="absolute pointer-events-none"
-        style={{ left: '29%', top: '0', width: '65%', opacity: 0.9, zIndex: 1 }}
-      />
-      <img
-        src={imgVector1}
-        alt=""
-        className="absolute pointer-events-none"
-        style={{ right: '7%', top: '6%', width: '38%', zIndex: 1 }}
-      />
+      {/* White overlay left */}
+      <div className="absolute pointer-events-none" style={{ left: 0, top: 0, width: '40%', height: '100%', background: 'white', zIndex: 4 }} />
 
-      {/* Alien illustration */}
-      <img
-        src={imgAlien2}
-        alt="Alien character"
-        className="absolute pointer-events-none"
-        style={{ right: '2%', top: '-20px', width: '220px', zIndex: 2 }}
-      />
-
-      {/* Text content */}
-      <div
-        className="absolute"
-        style={{ left: '75px', top: '277px', width: '487px', zIndex: 3 }}
-      >
-        <h1
-          className="font-['Heebo',sans-serif] font-bold text-[40px] leading-[1.3] mb-3"
-          style={{ color: 'rgba(0,0,0,0.7)', width: '405px' }}
-        >
+      {/* Text — centered within left half */}
+      <div className="absolute" style={{ zIndex: 5, top: '50%', transform: 'translateY(-50%)', left: 'clamp(40px, 8vw, 160px)', right: '62%' }}>
+        <h1 className="font-['Heebo',sans-serif] font-bold leading-[1.3] mb-4"
+          style={{ fontSize: 'clamp(28px, 3vw, 40px)', color: 'rgba(0,0,0,0.7)' }}>
           Bringing Worlds to Life Through Design
         </h1>
-        <p
-          className="font-['Heebo',sans-serif] font-normal text-[25px] leading-[1.3] mb-3"
-          style={{ color: 'rgba(0,0,0,0.5)' }}
-        >
+        <p className="font-['Heebo',sans-serif] font-normal leading-[1.3] mb-3"
+          style={{ fontSize: 'clamp(18px, 2vw, 25px)', color: 'rgba(0,0,0,0.5)' }}>
           UI/UX Designer &amp; Game Visual Designer
         </p>
-        <p
-          className="font-['Heebo',sans-serif] font-normal text-[18px] leading-[1.5]"
-          style={{ color: 'rgba(0,0,0,0.4)', width: '418px' }}
-        >
+        <p className="font-['Heebo',sans-serif] font-normal leading-[1.6] mb-8"
+          style={{ fontSize: 'clamp(14px, 1.4vw, 18px)', color: 'rgba(0,0,0,0.4)' }}>
           Specializing in stylized characters, environments, and digital experiences that convert ideas into engaging products.
         </p>
-        <p
-          className="font-['Heebo',sans-serif] font-normal text-[14px] mt-6"
-          style={{ color: 'rgba(0,0,0,0.3)' }}
+        <a href="#projects"
+          className="inline-flex items-center justify-center h-[43px] px-[40px] rounded-[59px] font-['Heebo',sans-serif] font-medium whitespace-nowrap mb-5 cursor-pointer"
+          style={{
+            fontSize: 'clamp(14px, 1.4vw, 18px)',
+            background: 'linear-gradient(11deg, rgb(120,124,222), rgb(169,203,255), rgb(120,124,222))',
+            backgroundSize: '200% 100%',
+            backgroundPosition: btn === 'hover' || btn === 'active' ? '100% 0%' : '0% 0%',
+            color: btn === 'active' ? '#3d4196' : 'white',
+            transition: 'background-position 0.5s ease, color 0.1s',
+          }}
+          onMouseEnter={() => setBtn('hover')}
+          onMouseLeave={() => setBtn('default')}
+          onMouseDown={() => setBtn('active')}
+          onMouseUp={() => setBtn('hover')}
         >
+          View my work
+        </a>
+        <p className="font-['Heebo',sans-serif] font-normal block mt-4"
+          style={{ fontSize: 'clamp(11px, 1vw, 14px)', color: 'rgba(0,0,0,0.3)' }}>
           Trusted by startups, game studios, and creative teams worldwide.
         </p>
       </div>
-
-      {/* CTA button */}
-      <a
-        href="#projects"
-        className="absolute flex items-center justify-center h-[43px] px-[39px] rounded-[59px] text-white font-['Heebo',sans-serif] font-medium text-[18px] whitespace-nowrap"
-        style={{
-          left: '68px',
-          top: '572px',
-          width: '173px',
-          background: 'linear-gradient(11deg, rgb(120,124,222) 20%, rgb(169,203,255) 80%)',
-          zIndex: 3,
-        }}
-      >
-        view my work
-      </a>
     </section>
   )
 }

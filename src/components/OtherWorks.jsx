@@ -66,7 +66,7 @@ export default function OtherWorks() {
 
   return (
     <section id="exploration" className="bg-white" style={{ paddingTop: '60px', paddingBottom: '40px' }}>
-      <div className="max-w-[1280px] mx-auto px-[80px]">
+      <div className="section-container">
         {/* Heading */}
         <div className="mb-8">
           <h2 className="font-['Heebo',sans-serif] font-black text-[36px] tracking-[-1.2px] leading-[60px]" style={{ color: '#0f172a' }}>

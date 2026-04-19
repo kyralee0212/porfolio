@@ -1,7 +1,7 @@
 export default function CTA() {
   return (
     <section className="bg-white" style={{ paddingTop: '80px', paddingBottom: '40px' }}>
-      <div className="max-w-[1280px] mx-auto px-[80px]">
+      <div className="section-container">
         <div
           className="flex items-center justify-between px-[41px]"
           style={{

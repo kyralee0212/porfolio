@@ -20,11 +20,11 @@ function Tag({ label }) {
 
 export default function Experience() {
   return (
-    <section className="relative bg-white overflow-hidden" style={{ paddingBottom: '60px' }}>
-      <div className="max-w-[1280px] mx-auto px-[80px]">
+    <section className="relative bg-white overflow-hidden" style={{ minHeight: '100vh', paddingTop: '80px', paddingBottom: '80px', display: 'flex', alignItems: 'center' }}>
+      <div className="section-container w-full">
 
         {/* Top row: Work Experience (left) + Software Skills (right) */}
-        <div className="grid grid-cols-2 gap-16 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mb-12">
           {/* Work Experience */}
           <div>
             <h3 className="font-['Heebo',sans-serif] font-bold text-[30px] text-black mb-5">Work Experience</h3>
@@ -81,7 +81,7 @@ export default function Experience() {
         </div>
 
         {/* Bottom row: Education (left) + Expertise (right) + planet decoration */}
-        <div className="relative grid grid-cols-2 gap-16">
+        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
           {/* Education */}
           <div>
             <h3 className="font-['Heebo',sans-serif] font-bold text-[30px] text-black mb-5">Education</h3>
@@ -123,7 +123,7 @@ export default function Experience() {
             src={imgPinkPlanet2}
             alt=""
             className="absolute pointer-events-none"
-            style={{ right: '-60px', bottom: '-80px', width: '350px', opacity: 0.85 }}
+            style={{ right: '-300px', bottom: '140px', width: '420px', opacity: 0.85 }}
           />
         </div>
       </div>

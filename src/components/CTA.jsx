@@ -1,9 +1,13 @@
+import { useFadeUp } from '../hooks/useFadeUp'
+
 export default function CTA() {
+  const [ref, visible] = useFadeUp()
   return (
     <section className="bg-white" style={{ paddingTop: '80px', paddingBottom: '40px' }}>
       <div className="section-container">
         <div
-          className="flex items-center justify-between px-[41px]"
+          ref={ref}
+          className={`flex items-center justify-between px-[41px] fade-up${visible ? ' visible' : ''}`}
           style={{
             height: '154px',
             background: 'rgba(151,162,235,0.2)',

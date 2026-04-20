@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { imgVector2, imgVector1, imgAlien2 } from '../assets/figmaAssets'
 import bgVideo from '../assets/bg_video.mp4'
+import { useFadeUp } from '../hooks/useFadeUp'
 
 export default function Hero() {
   const [state, setState] = useState('idle')
   const [btn, setBtn] = useState('default')
+  const [textRef, textVisible] = useFadeUp(0.1)
 
   return (
     <section
@@ -61,7 +63,12 @@ export default function Hero() {
       <div className="absolute pointer-events-none" style={{ left: 0, top: 0, width: '40%', height: '100%', background: 'white', zIndex: 4 }} />
 
       {/* Text — centered within left half */}
-      <div className="absolute" style={{ zIndex: 5, top: '50%', transform: 'translateY(-50%)', left: 'clamp(40px, 8vw, 160px)', right: '62%' }}>
+      <div ref={textRef} className="absolute" style={{
+        zIndex: 5, top: '50%', left: 'clamp(40px, 8vw, 160px)', right: '62%',
+        transform: textVisible ? 'translateY(-50%)' : 'translateY(calc(-50% + 40px))',
+        opacity: textVisible ? 1 : 0,
+        transition: 'opacity 0.75s cubic-bezier(0.22,1,0.36,1), transform 0.75s cubic-bezier(0.22,1,0.36,1)',
+      }}>
         <h1 className="font-['Heebo',sans-serif] font-bold leading-[1.3] mb-4"
           style={{ fontSize: 'clamp(28px, 3vw, 40px)', color: 'rgba(0,0,0,0.7)' }}>
           Bringing Worlds to Life Through Design

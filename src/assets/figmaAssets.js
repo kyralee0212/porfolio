@@ -1,48 +1,63 @@
-export const imgAlien2 = "https://www.figma.com/api/mcp/asset/842813eb-c247-4ed1-808e-df133c22ca4e";
-export const imgVector2 = "https://www.figma.com/api/mcp/asset/1e456fdc-f244-458b-a49e-86b6df2f42fd";
-export const imgVector1 = "https://www.figma.com/api/mcp/asset/4af4cd67-7b4d-4676-b248-f4bf6be0016c";
-export const imgBg22 = "https://www.figma.com/api/mcp/asset/fe768234-d552-46cd-ad83-36b908edefdd";
-export const imgPlanet2 = "https://www.figma.com/api/mcp/asset/368d8859-0cd8-4a5d-99a1-28e1083201c1";
-export const imgSquare3 = "https://www.figma.com/api/mcp/asset/5febdaae-3561-4625-b720-ebc1ce1e7e3b";
-export const imgStar4 = "https://www.figma.com/api/mcp/asset/ae20cc64-41da-4205-856f-f29d511112c6";
-export const imgMe1 = "https://www.figma.com/api/mcp/asset/ca3f8e4f-73f3-43b6-a7e8-f142662ad2b5";
-export const imgCloud22 = "https://www.figma.com/api/mcp/asset/46943e6c-2891-46ea-bf54-fe7e7a78b8bf";
-export const imgPinkPlanet2 = "https://www.figma.com/api/mcp/asset/41606cb1-199b-433f-82ae-f9c50c38fd27";
-export const imgGroup142 = "https://www.figma.com/api/mcp/asset/c5c498f1-9dbe-4168-90a9-32664d225af7";
-export const imgStarPurple1 = "https://www.figma.com/api/mcp/asset/2ef807ea-21f8-4a22-8005-7cab8fd61f8f";
-export const imgNewPlanet1 = "https://www.figma.com/api/mcp/asset/8d6517ed-c7bc-4130-a172-d93bcd6819fa";
-export const imgImage2 = "https://www.figma.com/api/mcp/asset/83ad4879-2c81-466c-9b3d-384afae8beb6";
-export const imgImage1 = "https://www.figma.com/api/mcp/asset/8f826405-cd48-459f-b71e-da2bc665eca3";
-export const imgImage3 = "https://www.figma.com/api/mcp/asset/5b94021d-ac16-41b4-9e92-6538f346253f";
-export const imgImage4 = "https://www.figma.com/api/mcp/asset/684fbb36-e648-486c-9102-c90ef206abf5";
-export const imgImage5 = "https://www.figma.com/api/mcp/asset/bd4572ea-68a1-46ee-aa4b-6a106973f46a";
-export const imgImage6 = "https://www.figma.com/api/mcp/asset/52c1e7c0-b43f-4526-8745-de04a50fabc8";
-export const imgImage7 = "https://www.figma.com/api/mcp/asset/ae6e78ca-6207-4103-a1bf-4af3db53ed6a";
-export const imgImage8 = "https://www.figma.com/api/mcp/asset/26cf7e62-64e9-46ef-a42f-03dbe20c9809";
-export const imgImage9 = "https://www.figma.com/api/mcp/asset/160b2e91-e627-4b58-bfa3-bc7b9b86c476";
-export const imgRectangle18 = "https://www.figma.com/api/mcp/asset/66ad0079-9a7b-4540-a327-473f4cbc9547";
-export const imgRectangle19 = "https://www.figma.com/api/mcp/asset/02eb16b6-265f-4425-96ab-d87301bee5a5";
-export const imgRectangle20 = "https://www.figma.com/api/mcp/asset/6bd038b4-6ef4-4635-9b35-eef0a9c7caee";
-export const imgRectangle21 = "https://www.figma.com/api/mcp/asset/f83c6e51-61db-41d0-a9a7-10ce7cfb7e62";
-export const imgRectangle22 = "https://www.figma.com/api/mcp/asset/1de26c61-241e-48f4-a584-17b6b207ac19";
-export const imgRectangle23 = "https://www.figma.com/api/mcp/asset/73eda0af-da12-46af-ba97-ffff63153e30";
-export const imgRectangle24 = "https://www.figma.com/api/mcp/asset/f54e9bea-dc35-4368-8a09-84f04c02b492";
-export const imgRectangle25 = "https://www.figma.com/api/mcp/asset/2b737e8f-d38f-44a5-90c0-255528ceae68";
-export const imgRectangle26 = "https://www.figma.com/api/mcp/asset/2fa4f8c4-9734-4557-8ea2-9db5533ef5d9";
-export const imgRectangle27 = "https://www.figma.com/api/mcp/asset/39ef1808-e369-46a3-bea4-fe9b632368f3";
-export const imgRectangle28 = "https://www.figma.com/api/mcp/asset/52527d8a-c212-4f43-8f7b-9808c3fd7132";
-export const imgRectangle29 = "https://www.figma.com/api/mcp/asset/ba1c35bb-3529-4c79-a3f1-c1d50666f257";
-export const imgRectangle32 = "https://www.figma.com/api/mcp/asset/8a81c16c-1307-43ce-aa22-c115b5ec7c1d";
-export const imgRectangle33 = "https://www.figma.com/api/mcp/asset/e5b30749-ff9e-428b-964e-45fac17e97d3";
-export const imgRectangle34 = "https://www.figma.com/api/mcp/asset/921502e4-842b-4448-a24d-fa9cecfcd303";
-export const imgRectangle35 = "https://www.figma.com/api/mcp/asset/8e571155-204a-422d-a04d-d6ca371883f0";
-export const imgRectangle36 = "https://www.figma.com/api/mcp/asset/7db78de4-a4ea-4963-b2d4-93af1dd2e3cb";
-export const imgLogoWhite1 = "https://www.figma.com/api/mcp/asset/3280dfc1-ef53-4cce-ad00-b0ccfa8870b1";
-export const imgIcon = "https://www.figma.com/api/mcp/asset/c92a5d19-b026-4c3f-aeb1-496c7bdcc41b";
-export const imgGo = "https://www.figma.com/api/mcp/asset/3ce6d7bc-0f85-43be-826e-54e2ceef9aba";
-export const imgContainer = "https://www.figma.com/api/mcp/asset/03183f08-ffa1-462e-bca8-52517cbd4342";
-export const imgContainer1 = "https://www.figma.com/api/mcp/asset/6e4ee6d8-d531-44cf-a757-716b6e7999a5";
-export const imgContainer2 = "https://www.figma.com/api/mcp/asset/3a89c60f-058c-4a05-8f66-bc92c2a77abc";
-export const imgContainer3 = "https://www.figma.com/api/mcp/asset/ba22eb62-4243-439b-b15f-ab11e781ef68";
-export const imgContainer4 = "https://www.figma.com/api/mcp/asset/7440f547-9f1f-4d7e-a52b-98ac3beb214b";
-export const imgContainer5 = "https://www.figma.com/api/mcp/asset/0d42f77f-f443-41a4-942e-32860f13e0a1";
+import imgAlien2 from './images/imgAlien2.png'
+import imgVector2 from './images/imgVector2.svg'
+import imgVector1 from './images/imgVector1.svg'
+import imgBg22 from './images/imgBg22.png'
+import imgPlanet2 from './images/imgPlanet2.png'
+import imgSquare3 from './images/imgSquare3.png'
+import imgStar4 from './images/imgStar4.png'
+import imgMe1 from './images/imgMe1.png'
+import imgCloud22 from './images/imgCloud22.png'
+import imgPinkPlanet2 from './images/imgPinkPlanet2.png'
+import imgGroup142 from './images/imgGroup142.png'
+import imgStarPurple1 from './images/imgStarPurple1.png'
+import imgNewPlanet1 from './images/imgNewPlanet1.png'
+import imgImage2 from './images/imgImage2.png'
+import imgImage1 from './images/imgImage1.png'
+import imgImage3 from './images/imgImage3.png'
+import imgImage4 from './images/imgImage4.png'
+import imgImage5 from './images/imgImage5.jpg'
+import imgImage6 from './images/imgImage6.png'
+import imgImage7 from './images/imgImage7.png'
+import imgImage8 from './images/imgImage8.png'
+import imgImage9 from './images/imgImage9.png'
+import imgRectangle18 from './images/imgRectangle18.jpg'
+import imgRectangle19 from './images/imgRectangle19.png'
+import imgRectangle20 from './images/imgRectangle20.png'
+import imgRectangle21 from './images/imgRectangle21.jpg'
+import imgRectangle22 from './images/imgRectangle22.png'
+import imgRectangle23 from './images/imgRectangle23.jpg'
+import imgRectangle24 from './images/imgRectangle24.png'
+import imgRectangle25 from './images/imgRectangle25.png'
+import imgRectangle26 from './images/imgRectangle26.png'
+import imgRectangle27 from './images/imgRectangle27.png'
+import imgRectangle28 from './images/imgRectangle28.png'
+import imgRectangle29 from './images/imgRectangle29.png'
+import imgRectangle30 from './images/imgRectangle30.png'
+import imgRectangle31 from './images/imgRectangle31.png'
+import imgRectangle32 from './images/imgRectangle32.png'
+import imgRectangle33 from './images/imgRectangle33.jpg'
+import imgRectangle34 from './images/imgRectangle34.jpg'
+import imgRectangle35 from './images/imgRectangle35.png'
+import imgRectangle36 from './images/imgRectangle36.png'
+import imgLogoWhite1 from './images/imgLogoWhite1.png'
+import imgIcon from './images/imgIcon.svg'
+import imgGo from './images/imgGo.svg'
+import imgContainer from './images/imgContainer.svg'
+import imgContainer1 from './images/imgContainer1.svg'
+import imgContainer2 from './images/imgContainer2.svg'
+import imgContainer3 from './images/imgContainer3.svg'
+import imgContainer4 from './images/imgContainer4.svg'
+import imgContainer5 from './images/imgContainer5.svg'
+
+export {
+  imgAlien2, imgVector2, imgVector1, imgBg22, imgPlanet2, imgSquare3, imgStar4,
+  imgMe1, imgCloud22, imgPinkPlanet2, imgGroup142, imgStarPurple1, imgNewPlanet1,
+  imgImage2, imgImage1, imgImage3, imgImage4, imgImage5, imgImage6, imgImage7,
+  imgImage8, imgImage9,
+  imgRectangle18, imgRectangle19, imgRectangle20, imgRectangle21, imgRectangle22,
+  imgRectangle23, imgRectangle24, imgRectangle25, imgRectangle26, imgRectangle27,
+  imgRectangle28, imgRectangle29, imgRectangle30, imgRectangle31, imgRectangle32,
+  imgRectangle33, imgRectangle34, imgRectangle35, imgRectangle36,
+  imgLogoWhite1, imgIcon, imgGo,
+  imgContainer, imgContainer1, imgContainer2, imgContainer3, imgContainer4, imgContainer5,
+}

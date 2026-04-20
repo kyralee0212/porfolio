@@ -1,4 +1,5 @@
 import { imgGroup142, imgPinkPlanet2 } from '../assets/figmaAssets'
+import { useFadeUp } from '../hooks/useFadeUp'
 
 const expertise = [
   'UI/UX Design', 'Motion Graphics', 'Animation', 'Graphic Design',
@@ -19,9 +20,10 @@ function Tag({ label }) {
 }
 
 export default function Experience() {
+  const [ref, visible] = useFadeUp()
   return (
     <section className="relative bg-white overflow-hidden" style={{ minHeight: '100vh', paddingTop: '80px', paddingBottom: '80px', display: 'flex', alignItems: 'center' }}>
-      <div className="section-container w-full">
+      <div ref={ref} className={`section-container w-full fade-up${visible ? ' visible' : ''}`}>
 
         {/* Top row: Work Experience (left) + Software Skills (right) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mb-12">

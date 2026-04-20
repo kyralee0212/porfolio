@@ -1,35 +1,48 @@
 import { useState, useRef, useEffect } from 'react'
+import { useFadeUp } from '../hooks/useFadeUp'
 import {
   imgRectangle18, imgRectangle19, imgRectangle20,
   imgRectangle21, imgRectangle22, imgRectangle23,
   imgRectangle24, imgRectangle25, imgRectangle26, imgRectangle27,
-  imgRectangle28, imgRectangle29, imgRectangle32,
+  imgRectangle28, imgRectangle29, imgRectangle30, imgRectangle31, imgRectangle32,
   imgRectangle33, imgRectangle34, imgRectangle35, imgRectangle36,
 } from '../assets/figmaAssets'
 
 const logoDesignCards = [
   { img: imgRectangle18, category: 'NAIL SHOP', title: "L'EUPHORIE" },
-  { img: imgRectangle19, category: 'FINANCE COMPANY', title: 'Better Lending Solutions' },
-  { img: imgRectangle20, category: 'COFFEE SHOP', title: 'Cereals Cat' },
+  { img: imgRectangle19, category: 'FINANCE COMPANY', title: 'Better Lending Solutions', imgFit: 'contain', imgStyle: { objectPosition: 'center top' } },
+  { img: imgRectangle20, category: 'COFFEE SHOP', title: 'Cereals Cat', imgStyle: { objectPosition: 'calc(50% - 20px) -40px' } },
   { img: imgRectangle21, category: 'RESTAURANT', title: 'KAWA RAMEN' },
-  { img: imgRectangle22, category: 'TECH COMPANY', title: 'Delphinus Lab' },
+  { img: imgRectangle22, category: 'TECH COMPANY', title: 'Delphinus Lab', imgStyle: { objectPosition: 'center calc(20% - 40px)' } },
   { img: imgRectangle23, category: 'HEAVY METAL INDUSTRY COMPANY', title: 'Ming Wei' },
 ]
 
 const twoDCards = [
-  { img: imgRectangle28, category: 'CARTOON SERIES IDEA', title: 'Pitch Bibble' },
-  { img: imgRectangle29, category: 'LINE STICKER DESIGN', title: 'Otan & Rigi' },
+  { img: imgRectangle28, category: 'CARTOON SERIES IDEA', title: 'Pitch Bibble', imgFit: 'contain', imgStyle: { objectPosition: 'center top' } },
+  {
+    img: imgRectangle29, category: 'LINE STICKER DESIGN', title: 'Otan & Rigi',
+    overlays: [
+      { type: 'whitewash', opacity: 0.46 },
+      { img: imgRectangle30, style: { height: '50.37%', left: '0.09%', top: '0.05%', width: '58.24%' } },
+      { img: imgRectangle31, style: { height: '47.43%', left: '47.33%', top: '28.77%', width: '54.84%' } },
+    ]
+  },
   { img: imgRectangle32, category: 'CONCEPT ART', title: 'Zeitgeist' },
   { img: imgRectangle33, category: '2D ILLUSTRATION', title: 'Inktober' },
-  { img: imgRectangle34, category: 'CHARACTER DESIGN & STORYBOARD', title: 'Bear & Grandma' },
+  {
+    bgColor: 'white', category: 'CHARACTER DESIGN & STORYBOARD', title: 'Bear & Grandma',
+    overlays: [
+      { img: imgRectangle34, style: { height: '60.55%', left: '4.48%', top: '7.92%', width: '90.82%' } },
+    ]
+  },
   { img: imgRectangle35, category: '2D ANIMATION', title: 'Bridge' },
   { img: imgRectangle36, category: '2D MOTION GRAPHIC', title: 'Sydney Vivid Show' },
 ]
 
 const threeDCards = [
   { img: imgRectangle24, category: '3D VISUAL EFFECTS', title: 'Sighting' },
-  { img: imgRectangle25, category: '3D ANIMATION', title: 'Tinder Lovin' },
-  { img: imgRectangle26, category: '3D ANIMATION', title: 'Zeitgeist' },
+  { img: imgRectangle25, category: '3D ANIMATION', title: 'Tinder Lovin', imgStyle: { objectPosition: 'calc(50% + 140px) calc(50% - 30px)' } },
+  { img: imgRectangle26, category: '3D ANIMATION', title: 'Zeitgeist', imgStyle: { objectPosition: 'calc(50% - 80px) center' } },
   { img: imgRectangle27, category: '3D ENVIRONMENT DESIGN', title: 'Secret Space' },
 ]
 
@@ -39,7 +52,7 @@ const tabs = [
   { label: '3D animation', cards: threeDCards },
 ]
 
-function ExploreCard({ img, category, title, href = '#' }) {
+function ExploreCard({ img, category, title, imgStyle, imgFit, overlays, bgColor, href = '#' }) {
   return (
     <a
       href={href}
@@ -54,7 +67,13 @@ function ExploreCard({ img, category, title, href = '#' }) {
     >
       {/* Inner clip container — rounds all four corners */}
       <div className="absolute inset-0 rounded-[20px] overflow-hidden">
-        <img src={img} alt={title} className="absolute w-full h-full object-cover" />
+        {bgColor && <div className="absolute inset-0" style={{ background: bgColor }} />}
+        {img && <img src={img} alt={title} className="absolute w-full h-full" style={{ objectFit: imgFit || 'cover', ...(imgStyle || {}) }} />}
+        {overlays && overlays.map((o, i) =>
+          o.type === 'whitewash'
+            ? <div key={i} className="absolute inset-0" style={{ background: `rgba(255,255,255,${o.opacity})` }} />
+            : <img key={i} src={o.img} alt="" className="absolute max-w-none pointer-events-none" style={o.style} />
+        )}
         {/* White label strip */}
         <div className="absolute bottom-0 left-0 right-0 bg-white flex flex-col gap-0 pt-6 pb-5 px-6" style={{ height: '89px' }}>
           <p className="font-['Inter',sans-serif] font-bold text-[12px] tracking-[1.2px] uppercase leading-[16px]" style={{ color: '#97a2eb' }}>
@@ -76,8 +95,16 @@ export default function OtherWorks() {
   const [indicator, setIndicator] = useState({ left: 0, width: 0 })
   const tabRefs = useRef([])
 
+  const [sectionRef, sectionVisible] = useFadeUp()
   const cards = tabs[activeTab].cards
-  const visible = expanded ? cards : cards.slice(0, 3)
+  const visible = expanded ? cards : cards.slice(0, 6)
+
+  useEffect(() => {
+    tabs.flatMap(t => t.cards).forEach(card => {
+      if (card.img) { const i = new Image(); i.src = card.img }
+      card.overlays?.forEach(o => { if (o.img) { const i = new Image(); i.src = o.img } })
+    })
+  }, [])
 
   useEffect(() => {
     const el = tabRefs.current[activeTab]
@@ -91,10 +118,10 @@ export default function OtherWorks() {
 
   return (
     <section id="exploration" className="bg-white" style={{ paddingTop: '60px', paddingBottom: '40px' }}>
-      <div className="section-container">
+      <div ref={sectionRef} className={`section-container fade-up${sectionVisible ? ' visible' : ''}`}>
         {/* Heading */}
         <div className="mb-8">
-          <h2 className="font-['Heebo',sans-serif] font-black text-[36px] tracking-[-1.2px] leading-[60px]" style={{ color: '#0f172a' }}>
+          <h2 className="font-['Heebo',sans-serif] font-semibold text-[36px] tracking-[-1.2px] leading-[60px]" style={{ color: '#0f172a' }}>
             Explorations
           </h2>
           <p className="font-['Heebo',sans-serif] font-normal text-[18px] leading-[28px]" style={{ color: '#64748b' }}>
@@ -143,13 +170,27 @@ export default function OtherWorks() {
 
         {/* Cards grid: 3 columns */}
         <div>
-          <div
-            className="grid gap-x-[38px] gap-y-[25px]"
-            style={{ gridTemplateColumns: 'repeat(3, 348px)', padding: '6px', margin: '-6px' }}
-          >
-            {visible.map((card, i) => (
-              <ExploreCard key={i} {...card} />
-            ))}
+          <div className="relative" style={{ padding: '40px', margin: '-40px', overflow: 'hidden', maxHeight: expanded ? 'none' : '569px' }}>
+            <div
+              className="grid gap-x-[38px] gap-y-[25px]"
+              style={{
+                gridTemplateColumns: 'repeat(3, 348px)',
+              }}
+            >
+              {visible.map((card, i) => (
+                <ExploreCard key={i} {...card} />
+              ))}
+            </div>
+            {/* Fade gradient — only at very bottom, after the 1/3 peek */}
+            {!expanded && (
+              <div
+                className="absolute left-0 right-0 bottom-0 pointer-events-none"
+                style={{
+                  height: '220px',
+                  background: 'linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 40%, rgba(255,255,255,1) 70%)',
+                }}
+              />
+            )}
           </div>
 
           {/* Show more button */}

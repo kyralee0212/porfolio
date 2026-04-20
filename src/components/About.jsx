@@ -2,13 +2,15 @@ import { useState } from 'react'
 import {
   imgBg22, imgPlanet2, imgSquare3, imgStar4, imgMe1, imgCloud22
 } from '../assets/figmaAssets'
+import { useFadeUp } from '../hooks/useFadeUp'
 
 export default function About() {
   const [hovered, setHovered] = useState(false)
+  const [ref, visible] = useFadeUp()
 
   return (
     <section id="about" className="relative bg-white overflow-hidden" style={{ minHeight: '100vh', paddingTop: '80px', paddingBottom: '80px', display: 'flex', alignItems: 'center' }}>
-      <div className="section-container flex flex-col md:flex-row items-stretch gap-8 md:gap-16">
+      <div ref={ref} className={`section-container flex flex-col md:flex-row items-stretch gap-8 md:gap-16 fade-up${visible ? ' visible' : ''}`}>
 
         {/* Left: photo collage — 70% of Figma size: 353×452 */}
         <div

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { imgStarPurple1, imgIcon, imgNewPlanet1, imgImage2 } from '../assets/figmaAssets'
 import automataVideo from '../assets/automata.mp4'
+import { useFadeUp } from '../hooks/useFadeUp'
 
 function Tag({ label }) {
   return (
@@ -39,14 +40,16 @@ function GradientBtn({ children, href = '#' }) {
 }
 
 export default function FeaturedProjects() {
+  const [ref1, visible1] = useFadeUp()
+  const [ref2, visible2] = useFadeUp()
   return (
     <>
       {/* --- AUTOMATA --- */}
       <section id="projects" className="relative bg-white overflow-hidden" style={{ minHeight: '100vh', paddingTop: '80px', paddingBottom: '80px', display: 'flex', alignItems: 'center' }}>
         <div className="section-container w-full">
-          <div className="relative flex items-center gap-16">
+          <div ref={ref1} className="relative flex items-center gap-16" style={{ opacity: visible1 ? 1 : 0, transform: visible1 ? 'translateY(0)' : 'translateY(40px)', transition: 'opacity 0.75s cubic-bezier(0.22,1,0.36,1), transform 0.75s cubic-bezier(0.22,1,0.36,1)' }}>
             {/* Left: mockup */}
-            <div className="relative flex-shrink-0" style={{ width: '600px', height: '480px', marginTop: '-80px' }}>
+            <div className="relative flex-shrink-0" style={{ width: '600px', height: '480px' }}>
               <video
                 src={automataVideo}
                 autoPlay
@@ -62,7 +65,7 @@ export default function FeaturedProjects() {
               <div className="relative inline-flex items-center">
                 <img src={imgStarPurple1} alt="" className="w-[25px] h-[26px] mr-3" />
                 <span
-                  className="font-['Heebo',sans-serif] font-bold text-[20px] tracking-[1.4px] uppercase"
+                  className="font-['Heebo',sans-serif] font-medium text-[20px] tracking-[1.4px] uppercase"
                   style={{ color: '#787cde' }}
                 >
                   Featured Project
@@ -104,13 +107,13 @@ export default function FeaturedProjects() {
       {/* --- ZKwasm Dapp Hub --- */}
       <section className="relative bg-white" style={{ minHeight: '100vh', paddingTop: '80px', paddingBottom: '80px', display: 'flex', alignItems: 'center', overflow: 'visible' }}>
         <div className="section-container w-full">
-          <div className="relative flex items-center gap-16">
+          <div ref={ref2} className="relative flex items-center gap-16" style={{ opacity: visible2 ? 1 : 0, transform: visible2 ? 'translateY(0)' : 'translateY(40px)', transition: 'opacity 0.75s cubic-bezier(0.22,1,0.36,1), transform 0.75s cubic-bezier(0.22,1,0.36,1)' }}>
             {/* Left: text */}
             <div className="flex-1 flex flex-col gap-5" style={{ position: 'relative', zIndex: 2, marginTop: '100px' }}>
               <div className="relative inline-flex items-center">
                 <img src={imgStarPurple1} alt="" className="w-[25px] h-[26px] mr-3" />
                 <span
-                  className="font-['Heebo',sans-serif] font-bold text-[20px] tracking-[1.4px] uppercase"
+                  className="font-['Heebo',sans-serif] font-medium text-[20px] tracking-[1.4px] uppercase"
                   style={{ color: '#787cde' }}
                 >
                   Featured Project

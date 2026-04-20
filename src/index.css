@@ -22,3 +22,15 @@ body {
   padding-left: clamp(20px, 6vw, 80px);
   padding-right: clamp(20px, 6vw, 80px);
 }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-18px); }
+}
+
+.float-slow {
+  animation: float 5s ease-in-out infinite;
+}
+.float-slow-delay {
+  animation: float 6s ease-in-out infinite 1.5s;
+}

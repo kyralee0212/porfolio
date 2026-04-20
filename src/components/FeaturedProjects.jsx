@@ -46,7 +46,7 @@ export default function FeaturedProjects() {
         <div className="section-container w-full">
           <div className="relative flex items-center gap-16">
             {/* Left: mockup */}
-            <div className="relative flex-shrink-0" style={{ width: '600px', height: '480px', marginTop: '-40px' }}>
+            <div className="relative flex-shrink-0" style={{ width: '600px', height: '480px', marginTop: '-80px' }}>
               <video
                 src={automataVideo}
                 autoPlay
@@ -104,9 +104,9 @@ export default function FeaturedProjects() {
       {/* --- ZKwasm Dapp Hub --- */}
       <section className="relative bg-white" style={{ minHeight: '100vh', paddingTop: '80px', paddingBottom: '80px', display: 'flex', alignItems: 'center', overflow: 'visible' }}>
         <div className="section-container w-full">
-          <div className="relative flex items-start gap-16">
+          <div className="relative flex items-center gap-16">
             {/* Left: text */}
-            <div className="flex-1 flex flex-col gap-5 pt-8" style={{ position: 'relative', zIndex: 2 }}>
+            <div className="flex-1 flex flex-col gap-5" style={{ position: 'relative', zIndex: 2, marginTop: '100px' }}>
               <div className="relative inline-flex items-center">
                 <img src={imgStarPurple1} alt="" className="w-[25px] h-[26px] mr-3" />
                 <span
@@ -134,11 +134,11 @@ export default function FeaturedProjects() {
 
             {/* Right: mockup image + planets behind */}
             <div className="relative flex-shrink-0" style={{ width: '558px', height: '592px' }}>
-              {/* Small planet — top left */}
-              <img src={imgNewPlanet1} alt="" className="absolute pointer-events-none"
-                style={{ left: '0px', top: '10px', width: '160px', opacity: 0.75, zIndex: 0, filter: 'hue-rotate(220deg) saturate(1.2) brightness(1.1)' }} />
+              {/* Small planet — top center, behind phones */}
+              <img src={imgNewPlanet1} alt="" className="absolute pointer-events-none float-slow"
+                style={{ left: '100px', top: '10px', width: '180px', opacity: 0.85, zIndex: 0, filter: 'hue-rotate(45deg) saturate(1.5) brightness(1.2) contrast(0.9)' }} />
               {/* Large planet — bottom right */}
-              <img src={imgNewPlanet1} alt="" className="absolute pointer-events-none"
+              <img src={imgNewPlanet1} alt="" className="absolute pointer-events-none float-slow-delay"
                 style={{ right: '-80px', bottom: '-80px', width: '380px', opacity: 0.85, zIndex: 0 }} />
               <img
                 src={imgImage2}

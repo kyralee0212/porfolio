@@ -4,6 +4,7 @@ import { imgLogoWhite1 } from '../assets/figmaAssets'
 const NAV_LINKS = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
+  { label: 'Experience', href: '#experience' },
   { label: 'Projects', href: '#projects' },
   { label: 'Exploration', href: '#exploration' },
 ]
@@ -72,7 +73,7 @@ export default function Navbar() {
           href="mailto:kyralee0212@gmail.com"
           className="hidden md:flex self-center items-center justify-center rounded-[59px] font-['Heebo',sans-serif] font-medium whitespace-nowrap"
           style={{
-            background: 'linear-gradient(11deg, rgb(120,124,222), rgb(169,203,255), rgb(120,124,222))',
+            background: 'linear-gradient(11deg, rgb(120,124,222) 0%, rgb(169,203,255) 35%, rgb(169,203,255) 65%, rgb(120,124,222) 100%)',
             backgroundSize: '200% 100%',
             backgroundPosition: btn === 'hover' || btn === 'active' ? '100% 0%' : '0% 0%',
             color: btn === 'active' ? '#3d4196' : 'white',
@@ -121,7 +122,7 @@ export default function Navbar() {
           <a
             href="mailto:kyralee0212@gmail.com"
             className="flex items-center justify-center h-[43px] px-8 rounded-[59px] text-white font-['Heebo',sans-serif] font-medium text-[18px] w-fit"
-            style={{ background: 'linear-gradient(11deg, rgb(120,124,222) 20%, rgb(169,203,255) 80%)' }}
+            style={{ background: 'linear-gradient(11deg, rgb(120,124,222) 0%, rgb(169,203,255) 35%, rgb(169,203,255) 65%, rgb(120,124,222) 100%)' }}
           >
             Work with me
           </a>

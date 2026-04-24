@@ -13,14 +13,14 @@ const projects = [
     description: 'Designed an eastern fantasy cultivation simulation game with system-driven progression',
     images: [imgImage1, imgImage3, imgImage4],
     imgPosition: 'calc(50% - 50px) center',
-    href: '#',
+    href: '#xiuxian',
   },
   {
     title: 'Nugget',
     subtitle: 'Game UI / System Design',
     description: 'Designed a mining-based incremental game with clear system feedback and intuitive UI',
     images: [imgImage5],
-    href: '#',
+    href: '#nugget',
   },
   {
     title: 'Chi Palace',
@@ -34,7 +34,7 @@ const projects = [
     subtitle: 'Interactive UI / Experience Design',
     description: 'Created an interactive experience focused on character customisation and expressive motion',
     images: [imgImage6],
-    href: '#',
+    href: '#meme-disco',
   },
   {
     title: 'ZKwasm Explore',
@@ -42,7 +42,7 @@ const projects = [
     description: 'Designed a data-driven interface for exploring blockchain tasks',
     images: [imgImage7],
     imgPosition: 'center calc(50% + 50px)',
-    href: '#',
+    href: '#zkwasm-explore',
   },
   {
     title: 'ZKwasmHub',
@@ -50,16 +50,23 @@ const projects = [
     description: 'Built a scalable visual system for Web3 deployment experience',
     images: [imgImage8],
     imgPosition: 'center calc(50% + 50px)',
-    href: '#',
+    href: '#zkwasm-hub',
   },
 ]
 
+function navigate(hash) {
+  history.pushState(null, '', hash)
+  window.dispatchEvent(new HashChangeEvent('hashchange'))
+}
+
 function ProjectCard({ title, subtitle, description, images, imgPosition, href }) {
   const [hovered, setHovered] = useState(false)
+  const isRoute = href && href.startsWith('#') && href.length > 1 && href !== '#projects'
 
   return (
     <a
       href={href}
+      onClick={isRoute ? e => { e.preventDefault(); navigate(href) } : undefined}
       className="relative block rounded-[20px] overflow-hidden bg-white flex-shrink-0 cursor-pointer"
       style={{ width: '348px', height: '270px', boxShadow: '0 2px 12px rgba(0,0,0,0.07)' }}
       onMouseEnter={() => setHovered(true)}

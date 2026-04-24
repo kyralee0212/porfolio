@@ -22,7 +22,7 @@ function Tag({ label }) {
 export default function Experience() {
   const [ref, visible] = useFadeUp()
   return (
-    <section className="relative bg-white overflow-hidden" style={{ minHeight: '100vh', paddingTop: '80px', paddingBottom: '80px', display: 'flex', alignItems: 'center' }}>
+    <section id="experience" className="relative bg-white overflow-hidden" style={{ paddingTop: '80px', paddingBottom: '80px', display: 'flex', alignItems: 'center' }}>
       <div ref={ref} className={`section-container w-full fade-up${visible ? ' visible' : ''}`}>
 
         {/* Top row: Work Experience (left) + Software Skills (right) */}

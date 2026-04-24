@@ -9,7 +9,7 @@ export default function About() {
   const [ref, visible] = useFadeUp()
 
   return (
-    <section id="about" className="relative bg-white overflow-hidden" style={{ minHeight: '100vh', paddingTop: '80px', paddingBottom: '80px', display: 'flex', alignItems: 'center' }}>
+    <section id="about" className="relative bg-white overflow-hidden" style={{ paddingTop: '80px', paddingBottom: '80px', display: 'flex', alignItems: 'center' }}>
       <div ref={ref} className={`section-container flex flex-col md:flex-row items-stretch gap-8 md:gap-16 fade-up${visible ? ' visible' : ''}`}>
 
         {/* Left: photo collage — 70% of Figma size: 353×452 */}

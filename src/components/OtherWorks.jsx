@@ -9,12 +9,12 @@ import {
 } from '../assets/figmaAssets'
 
 const logoDesignCards = [
-  { img: imgRectangle18, category: 'NAIL SHOP', title: "L'EUPHORIE" },
-  { img: imgRectangle19, category: 'FINANCE COMPANY', title: 'Better Lending Solutions', imgFit: 'contain', imgStyle: { objectPosition: 'center top' } },
-  { img: imgRectangle20, category: 'COFFEE SHOP', title: 'Cereals Cat', imgStyle: { objectPosition: 'calc(50% - 20px) -40px' } },
-  { img: imgRectangle21, category: 'RESTAURANT', title: 'KAWA RAMEN' },
-  { img: imgRectangle22, category: 'TECH COMPANY', title: 'Delphinus Lab', imgStyle: { objectPosition: 'center calc(20% - 40px)' } },
-  { img: imgRectangle23, category: 'HEAVY METAL INDUSTRY COMPANY', title: 'Ming Wei' },
+  { img: imgRectangle18, category: 'NAIL SHOP', title: "L'EUPHORIE", href: '#leuphorie' },
+  { img: imgRectangle19, category: 'FINANCE COMPANY', title: 'Better Lending Solutions', imgFit: 'contain', imgStyle: { objectPosition: 'center top' }, href: '#better-lending' },
+  { img: imgRectangle20, category: 'COFFEE SHOP', title: 'Cereals Cat', imgStyle: { objectPosition: 'calc(50% - 20px) -40px' }, href: '#cereals-cat' },
+  { img: imgRectangle21, category: 'RESTAURANT', title: 'KAWA RAMEN', href: '#kawa-ramen' },
+  { img: imgRectangle22, category: 'TECH COMPANY', title: 'Delphinus Lab', imgStyle: { objectPosition: 'center calc(20% - 40px)' }, href: '#delphinus-lab' },
+  { img: imgRectangle23, category: 'HEAVY METAL INDUSTRY COMPANY', title: 'Ming Wei', href: '#ming-wei' },
 ]
 
 const twoDCards = [
@@ -52,10 +52,17 @@ const tabs = [
   { label: '3D animation', cards: threeDCards },
 ]
 
+function navigate(hash) {
+  history.pushState(null, '', hash)
+  window.dispatchEvent(new HashChangeEvent('hashchange'))
+}
+
 function ExploreCard({ img, category, title, imgStyle, imgFit, overlays, bgColor, href = '#' }) {
+  const isRoute = href && href.startsWith('#') && href.length > 1
   return (
     <a
       href={href}
+      onClick={isRoute ? e => { e.preventDefault(); navigate(href) } : undefined}
       className="relative block flex-shrink-0 cursor-pointer rounded-[20px]"
       style={{
         width: '348px', height: '348px',

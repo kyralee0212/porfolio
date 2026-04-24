@@ -27,7 +27,7 @@ export default function CTA() {
           <a
             href="mailto:kyralee0212@gmail.com"
             className="flex items-center justify-center h-[43px] px-[40px] rounded-[59px] text-white font-['Heebo',sans-serif] font-medium text-[18px] whitespace-nowrap flex-shrink-0"
-            style={{ background: 'linear-gradient(11deg, rgb(120,124,222) 20%, rgb(169,203,255) 80%)' }}
+            style={{ background: 'linear-gradient(11deg, rgb(120,124,222) 0%, rgb(169,203,255) 35%, rgb(169,203,255) 65%, rgb(120,124,222) 100%)' }}
           >
             Work with me
           </a>

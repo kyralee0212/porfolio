@@ -16,14 +16,21 @@ function Tag({ label }) {
   )
 }
 
+function navigate(hash) {
+  history.pushState(null, '', '#' + hash)
+  window.dispatchEvent(new HashChangeEvent('hashchange'))
+}
+
 function GradientBtn({ children, href = '#' }) {
   const [btn, setBtn] = useState('default')
+  const isRoute = href && href.startsWith('#') && href.length > 1
   return (
     <a
       href={href}
+      onClick={isRoute ? e => { e.preventDefault(); navigate(href.slice(1)) } : undefined}
       className="flex items-center justify-center h-[43px] px-[40px] rounded-[59px] font-['Heebo',sans-serif] font-medium text-[18px] whitespace-nowrap w-fit"
       style={{
-        background: 'linear-gradient(11deg, rgb(120,124,222), rgb(169,203,255), rgb(120,124,222))',
+        background: 'linear-gradient(11deg, rgb(120,124,222) 0%, rgb(169,203,255) 35%, rgb(169,203,255) 65%, rgb(120,124,222) 100%)',
         backgroundSize: '200% 100%',
         backgroundPosition: btn === 'hover' || btn === 'active' ? '100% 0%' : '0% 0%',
         color: btn === 'active' ? '#3d4196' : 'white',
@@ -45,7 +52,7 @@ export default function FeaturedProjects() {
   return (
     <>
       {/* --- AUTOMATA --- */}
-      <section id="projects" className="relative bg-white overflow-hidden" style={{ minHeight: '100vh', paddingTop: '80px', paddingBottom: '80px', display: 'flex', alignItems: 'center' }}>
+      <section id="projects" className="relative bg-white overflow-hidden" style={{ paddingTop: '80px', paddingBottom: '80px', display: 'flex', alignItems: 'center' }}>
         <div className="section-container w-full">
           <div ref={ref1} className="relative flex items-center gap-16" style={{ opacity: visible1 ? 1 : 0, transform: visible1 ? 'translateY(0)' : 'translateY(40px)', transition: 'opacity 0.75s cubic-bezier(0.22,1,0.36,1), transform 0.75s cubic-bezier(0.22,1,0.36,1)' }}>
             {/* Left: mockup */}
@@ -96,7 +103,7 @@ export default function FeaturedProjects() {
               </ul>
 
               <div className="mt-2">
-                <GradientBtn>Detail</GradientBtn>
+                <GradientBtn href="#automata">Detail</GradientBtn>
               </div>
             </div>
 
@@ -105,7 +112,7 @@ export default function FeaturedProjects() {
       </section>
 
       {/* --- ZKwasm Dapp Hub --- */}
-      <section className="relative bg-white" style={{ minHeight: '100vh', paddingTop: '80px', paddingBottom: '80px', display: 'flex', alignItems: 'center', overflow: 'visible' }}>
+      <section className="relative bg-white" style={{ paddingTop: '80px', paddingBottom: '80px', display: 'flex', alignItems: 'center', overflow: 'visible' }}>
         <div className="section-container w-full">
           <div ref={ref2} className="relative flex items-center gap-16" style={{ opacity: visible2 ? 1 : 0, transform: visible2 ? 'translateY(0)' : 'translateY(40px)', transition: 'opacity 0.75s cubic-bezier(0.22,1,0.36,1), transform 0.75s cubic-bezier(0.22,1,0.36,1)' }}>
             {/* Left: text */}

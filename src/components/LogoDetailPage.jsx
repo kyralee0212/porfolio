@@ -4,6 +4,8 @@ import blsIconColor from '../assets/bls-icon-color.svg'
 import blsLogoSloganWhite from '../assets/bls-logo-slogan-white.svg'
 import blsSketchWeb1 from '../assets/bls-sketch-web1.png'
 import blsSketchWeb2 from '../assets/bls-sketch-web2.png'
+import blsCard7 from '../assets/bls-card7.png'
+import blsEmailSig from '../assets/images/Email signiture.png'
 
 // ── Kawa Ramen ──────────────────────────────────────────────────────────────
 const kawaHero = kawaHeroNew
@@ -328,7 +330,7 @@ const PROJECTS = {
   'better-lending': {
     name: 'Better Lending Solutions',
     heroImg: blsHero,
-    heroOverlay: { background: 'radial-gradient(ellipse at center, rgba(3,8,45,0.9) 0%, rgba(3,8,45,0.55) 45%, transparent 72%), linear-gradient(135deg, rgba(15,18,139,0.82) 0%, rgba(92,0,216,0.72) 33%, rgba(0,156,215,0.72) 66%, rgba(0,192,157,0.8) 100%)' },
+    heroOverlay: { background: 'radial-gradient(ellipse at center, rgba(3,8,45,0.45) 0%, rgba(3,8,45,0.15) 45%, transparent 72%), linear-gradient(135deg, rgba(15,18,139,0.38) 0%, rgba(92,0,216,0.3) 33%, rgba(0,156,215,0.3) 66%, rgba(0,192,157,0.35) 100%)' },
     heroTheme: 'dark',
     heroJustify: 'center',
     heroContent: (
@@ -418,10 +420,10 @@ const PROJECTS = {
     finalTitle: 'Final Showcase',
     finalImages: [],
     finalRender: (
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 28, alignItems: 'start' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 28, alignItems: 'stretch' }}>
         {/* Left: Brand Collateral */}
         <div style={{ background: '#f0f1f3', borderRadius: 32, overflow: 'hidden' }}>
-          <div style={{ height: 480, overflow: 'hidden' }}>
+          <div style={{ height: 830, overflow: 'hidden' }}>
             <img src={blsFinalLeft} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} />
           </div>
           <div style={{ padding: '24px 32px 32px' }}>
@@ -434,25 +436,25 @@ const PROJECTS = {
           </div>
         </div>
         {/* Right: 3 cards stacked */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-          {/* Office signage */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 20, height: '100%' }}>
+          {/* Business card */}
           <div style={{ background: '#f0f1f3', borderRadius: 32, overflow: 'hidden' }}>
             <div style={{ aspectRatio: '16/9', overflow: 'hidden' }}>
-              <img src={blsFinalTopRight} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src={blsCard7} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} />
             </div>
             <div style={{ padding: '18px 24px 24px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
                 <div style={{ width: 3, height: 14, background: '#009cd7', borderRadius: 2 }} />
-                <span style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 11, letterSpacing: '1.5px', textTransform: 'uppercase', color: '#009cd7' }}>Signage</span>
+                <span style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 11, letterSpacing: '1.5px', textTransform: 'uppercase', color: '#009cd7' }}>Print</span>
               </div>
-              <p style={{ fontFamily: 'Manrope, sans-serif', fontWeight: 700, fontSize: 17, color: '#2c2f30', marginBottom: 4 }}>Office Branding</p>
-              <p style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontSize: 13, color: '#595c5d', lineHeight: '20px' }}>Logo applied to the office entrance and interior space.</p>
+              <p style={{ fontFamily: 'Manrope, sans-serif', fontWeight: 700, fontSize: 17, color: '#2c2f30', marginBottom: 4 }}>Business Card</p>
+              <p style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontSize: 13, color: '#595c5d', lineHeight: '20px' }}>Frosted glass finish card featuring the gradient brand identity for a premium first impression.</p>
             </div>
           </div>
           {/* Email signature */}
-          <div style={{ background: '#f0f1f3', borderRadius: 32, overflow: 'hidden' }}>
-            <div style={{ aspectRatio: '16/9', overflow: 'hidden' }}>
-              <img src={blsFinalEmailSig} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} />
+          <div style={{ background: '#f0f1f3', borderRadius: 32, overflow: 'hidden', flex: 1, display: 'flex', flexDirection: 'column' }}>
+            <div style={{ flex: 1, overflow: 'hidden', background: 'white', padding: 20, boxSizing: 'border-box', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <img src={blsEmailSig} alt="" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
             </div>
             <div style={{ padding: '18px 24px 24px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
@@ -461,20 +463,6 @@ const PROJECTS = {
               </div>
               <p style={{ fontFamily: 'Manrope, sans-serif', fontWeight: 700, fontSize: 17, color: '#2c2f30', marginBottom: 4 }}>Email Signature</p>
               <p style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontSize: 13, color: '#595c5d', lineHeight: '20px' }}>Consistent digital identity across all staff communications.</p>
-            </div>
-          </div>
-          {/* Printed brochure */}
-          <div style={{ background: '#f0f1f3', borderRadius: 32, overflow: 'hidden' }}>
-            <div style={{ aspectRatio: '16/9', overflow: 'hidden' }}>
-              <img src={blsFinalMidRight} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} />
-            </div>
-            <div style={{ padding: '18px 24px 24px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
-                <div style={{ width: 3, height: 14, background: '#00c09d', borderRadius: 2 }} />
-                <span style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, fontSize: 11, letterSpacing: '1.5px', textTransform: 'uppercase', color: '#00c09d' }}>Print</span>
-              </div>
-              <p style={{ fontFamily: 'Manrope, sans-serif', fontWeight: 700, fontSize: 17, color: '#2c2f30', marginBottom: 4 }}>Printed Brochure</p>
-              <p style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontSize: 13, color: '#595c5d', lineHeight: '20px' }}>Marketing collateral designed for client-facing print materials.</p>
             </div>
           </div>
         </div>
